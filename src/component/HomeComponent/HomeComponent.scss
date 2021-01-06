@@ -1,0 +1,42 @@
+.movie-wrapper {
+  display: inline-block;
+  width: 320px;
+  box-sizing: border-box;
+  margin-right: 60px;
+}
+
+.img-thumb {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+}
+
+.img-thumb img {
+  width: 100%;
+}
+
+p.duration {
+  font-size: 12px;
+  color: #999;
+  margin: 0px;
+}
+
+p.title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0px;
+  margin-top: 10px;
+  color: #2d2d2d;
+}
+
+p.description {
+  font-size: 12px;
+  color: #999;
+  margin: 0px;
+}
+
+p.genre  {
+  font-size: 12px;
+  margin: 0px;
+}
