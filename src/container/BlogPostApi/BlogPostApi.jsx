@@ -14,7 +14,7 @@ class BlogPostApi extends Component {
         //             post: json
         //         })
         //     })]
-        axios.get('https://jsonplaceholder.typicode.com/posts')
+        axios.get('http://localhost:3004/posts')
             .then((response)=> {
                 console.log(response.data);
                 this.setState({
