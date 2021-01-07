@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
-import HomeComponent from '../../component/HomeComponent/HomeComponent';
-import Product from '../Product/Product';
+// import HomeComponent from '../../component/HomeComponent/HomeComponent';
+import LifeCycleComp from '../LifeCycleComp/LifeCycleComp';
+// import Product from '../Product/Product';
 
 
 class Home extends Component {
     render() {
         return(
             <div>
-                <p>Movie List</p>
+                {/* <p>Movie List</p>
                 <hr />
             <HomeComponent />
             <HomeComponent
@@ -28,7 +29,8 @@ class Home extends Component {
                 description="description 5"/>
                 <p>Product Counter</p>
                 <hr/>
-                <Product />
+                <Product /> */}
+                <LifeCycleComp />
             </div>
         )
     }
