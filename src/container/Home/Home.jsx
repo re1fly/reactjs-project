@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 // import HomeComponent from '../../component/HomeComponent/HomeComponent';
-import LifeCycleComp from '../LifeCycleComp/LifeCycleComp';
+// import LifeCycleComp from '../LifeCycleComp/LifeCycleComp';
 // import Product from '../Product/Product';
+import BlogPostApi from '../BlogPostApi/BlogPostApi';
 
 
 class Home extends Component {
@@ -42,11 +43,14 @@ class Home extends Component {
                 <p>Product Counter</p>
                 <hr/>
                 <Product /> */}
-            <h2>Lifecycle</h2>
+            {/* <h2>Lifecycle</h2>
             <hr />
             {
                 this.state.showComponent ? <LifeCycleComp /> : "Component unmounting"
-            }
+            } */}
+            <h2>Blog Post API </h2>
+            <hr />
+            <BlogPostApi />
             </div>
         )
     }
