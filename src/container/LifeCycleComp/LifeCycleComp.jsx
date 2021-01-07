@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {Button} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class LifeCycleComp extends Component {
@@ -16,14 +18,14 @@ class LifeCycleComp extends Component {
 
     componentDidMount(){
         console.log("ComponentDidMount")
-        setTimeout(() => {
-            this.setState({
-                count: 2
-            })
-        }, 3000);
+        // setTimeout(() => {
+        //     this.setState({
+        //         count: 2
+        //     })
+        // }, 3000);
     }
 
-    shouldComponentUpdate(nextProps, nextState){
+    shouldComponentUpdate(nextProps,  nextState){
         console.log("shouldComponentUpdate")
         return true;
     }
@@ -45,10 +47,16 @@ class LifeCycleComp extends Component {
         console.log("componentWillUnmount")
     }
 
+    changeCount = () =>{
+        this.setState({
+            count: this.state.count + 1
+        })
+    }
+
     render(){
         console.log("render");  
         return(
-            <button className="btn">Component Button{this.state.count}</button>
+            <Button variant="outline-primary" onClick={this.changeCount}>Component Button{this.state.count}</Button>
         )
     }
 }
