@@ -31,6 +31,9 @@ class LifeCycleComp extends Component {
         console.log("nextState: ", nextState);
         console.log("thisState: ", this.state);
         console.groupEnd();
+        if(nextState.count > 5){
+            return false;
+        }
         return true;
     }
 
