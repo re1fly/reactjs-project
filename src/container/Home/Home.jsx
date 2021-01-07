@@ -5,6 +5,18 @@ import LifeCycleComp from '../LifeCycleComp/LifeCycleComp';
 
 
 class Home extends Component {
+    state = {
+        showComponent: true
+    }
+    
+    componentDidMount(){
+        setTimeout(() => {
+            this.setState({
+                showComponent: false
+            })
+        }, 8000);
+    }
+
     render() {
         return(
             <div>
@@ -14,7 +26,7 @@ class Home extends Component {
             <HomeComponent
                 title="Lucifer Season 1 Eps 2"
                 duration="42.12"
-                description="description 2"/>
+                description="descript i on 2"/>
             <HomeComponent
                 title="Lucifer Season 1 Eps 3"
                 duration="39.04"
@@ -30,7 +42,11 @@ class Home extends Component {
                 <p>Product Counter</p>
                 <hr/>
                 <Product /> */}
-                <LifeCycleComp />
+            <h2>Lifecycle</h2>
+            <hr />
+            {
+                this.state.showComponent ? <LifeCycleComp /> : "Component unmounting"
+            }
             </div>
         )
     }
