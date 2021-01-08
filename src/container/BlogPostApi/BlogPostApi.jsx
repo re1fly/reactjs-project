@@ -101,6 +101,8 @@ class BlogPostApi extends Component {
     render() {
         return (
             <Fragment>
+            <h2>Blog Post API Page</h2>
+            <hr />
                 <Card style={{ width: '40%' }}>
                     <Card.Header className="text-center font-weight-bold" >Insert Data</Card.Header>
                     <Card.Body>

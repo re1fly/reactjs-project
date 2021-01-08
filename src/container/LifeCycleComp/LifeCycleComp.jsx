@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -63,7 +63,11 @@ class LifeCycleComp extends Component {
     render(){
         console.log("render");  
         return(
-            <Button variant="outline-primary" onClick={this.changeCount}>Component Button{this.state.count}</Button>
+            <Fragment>
+                <h2>LifeCycle Page</h2>
+                <hr />
+                <Button variant="outline-primary" onClick={this.changeCount}>Component Button{this.state.count}</Button>
+            </Fragment>
         )
     }
 }

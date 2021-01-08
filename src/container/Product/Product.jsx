@@ -17,6 +17,8 @@ class Product extends Component {
     render(){
         return(
             <Fragment>
+                <h2>Product Page </h2>
+                <hr />
                 <div className="header">
                     <div className="logo">
                         <img src="https://www.globalxtreme.net/images/gx-logo.png" alt="logo-img"/>

@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
-// import HomeComponent from '../../component/HomeComponent/HomeComponent';
-// import LifeCycleComp from '../LifeCycleComp/LifeCycleComp';
-// import Product from '../Product/Product';
+import React, { Component } from 'react';
+import HomeComponent from '../../component/HomeComponent/HomeComponent';
+import LifeCycleComp from '../LifeCycleComp/LifeCycleComp';
+import Product from '../Product/Product';
 import BlogPostApi from '../BlogPostApi/BlogPostApi';
-
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { Fragment } from 'react';
 
 class Home extends Component {
     state = {
@@ -20,8 +21,9 @@ class Home extends Component {
 
     render() {
         return(
-            <div>
-                {/* <p>Movie List</p>
+            <BrowserRouter>
+            {/* <div>
+                <p>Movie List</p>
                 <hr />
             <HomeComponent />
             <HomeComponent
@@ -42,16 +44,22 @@ class Home extends Component {
                 description="description 5"/>
                 <p>Product Counter</p>
                 <hr/>
-                <Product /> */}
-            {/* <h2>Lifecycle</h2>
+                <Product />
+            <h2>Lifecycle</h2>
             <hr />
             {
                 this.state.showComponent ? <LifeCycleComp /> : "Component unmounting"
-            } */}
+            }
             <h2>Blog Post API </h2>
             <hr />
             <BlogPostApi />
-            </div>
+            </div> */}
+            <Fragment>
+                <Route path="/" exact component={BlogPostApi} />
+                <Route path="/product" component={Product} />
+                <Route path="/lifecycle" component={LifeCycleComp} />
+            </Fragment>
+            </BrowserRouter>
         )
     }
 }
