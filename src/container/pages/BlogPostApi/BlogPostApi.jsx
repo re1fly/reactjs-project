@@ -94,6 +94,10 @@ class BlogPostApi extends Component {
         }
     }
 
+    handleDetail = (id) => {
+        this.props.history.push(`/detail-post/${id}`)
+    }
+
     componentDidMount() {
         this.getPostAPI()
     }
@@ -107,8 +111,8 @@ class BlogPostApi extends Component {
                     <Card.Body>
                 <Form>
                 <Form.Group controlId="formGroupTitle">
-                    <Form.Label>Title</Form.Label>
-                    <Form.Control  type="text" value={this.state.formBlogPost.title} name="title" placeholder="Enter Title" onChange={this.handleFormChange} />
+                    <Form.Label >Title</Form.Label>
+                    <Form.Control type="text" value={this.state.formBlogPost.title} name="title" placeholder="Enter Title" onChange={this.handleFormChange} />
                 </Form.Group>
                 <Form.Group controlId="formGroupDescription">
                     <Form.Label>Description</Form.Label>
@@ -120,7 +124,7 @@ class BlogPostApi extends Component {
                 </Card><br />
                 {
                     this.state.post.map( post => {
-                       return <Post key={post.id} data={post} delete={this.handleDelete} update={this.handleUpdate}  />
+                       return <Post key={post.id} data={post} delete={this.handleDelete} update={this.handleUpdate} detail={this.handleDetail} />
                     })
                 }
             </Fragment>
