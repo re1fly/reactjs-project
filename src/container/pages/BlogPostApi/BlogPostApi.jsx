@@ -1,8 +1,7 @@
 import React, {Component, Fragment} from 'react';
-import Post from '../../component/Post/Post';
+import Post from '../../../component/Post/Post';
 import axios from 'axios';
 import { Button, Card, Form } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class BlogPostApi extends Component {

@@ -1,10 +1,16 @@
-import React, { Component } from 'react';
-import HomeComponent from '../../component/HomeComponent/HomeComponent';
-import LifeCycleComp from '../LifeCycleComp/LifeCycleComp';
-import Product from '../Product/Product';
-import BlogPostApi from '../BlogPostApi/BlogPostApi';
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import { Fragment } from 'react';
+//libraries
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+//pages
+import LifeCycleComp from '../pages/LifeCycleComp/LifeCycleComp';
+import Product from '../pages/Product/Product';
+import BlogPostApi from '../pages/BlogPostApi/BlogPostApi';
+import HomeComponentPage from '../pages/HomeComponentPage/HomeComponentPage';
+
+//style
+import { Button, Card } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Home extends Component {
     state = {
@@ -21,45 +27,20 @@ class Home extends Component {
 
     render() {
         return(
-            <BrowserRouter>
-            {/* <div>
-                <p>Movie List</p>
-                <hr />
-            <HomeComponent />
-            <HomeComponent
-                title="Lucifer Season 1 Eps 2"
-                duration="42.12"
-                description="descript i on 2"/>
-            <HomeComponent
-                title="Lucifer Season 1 Eps 3"
-                duration="39.04"
-                description="description 3"/>
-            <HomeComponent
-                title="Lucifer Season 1 Eps 4"
-                duration="41.02"
-                description="description 4"/>
-            <HomeComponent
-                title="Lucifer Season 1 Eps 5"
-                duration="46.24"
-                description="description 5"/>
-                <p>Product Counter</p>
-                <hr/>
-                <Product />
-            <h2>Lifecycle</h2>
-            <hr />
-            {
-                this.state.showComponent ? <LifeCycleComp /> : "Component unmounting"
-            }
-            <h2>Blog Post API </h2>
-            <hr />
-            <BlogPostApi />
-            </div> */}
+            <Router>
             <Fragment>
+                <Card.Body>
+                    <Link to="/"><Button className="m-3" variant="outline-primary">Blog Post API Page</Button></Link>
+                    <Link to="/product"><Button className="m-3" variant="outline-secondary">Product Page</Button></Link>
+                    <Link to="/lifecycle"><Button className="m-3" variant="outline-info">LifeCycle Page</Button></Link>
+                    <Link to="/home-component"><Button className="m-3" variant="outline-info">Movie</Button></Link>
+                </Card.Body>
                 <Route path="/" exact component={BlogPostApi} />
                 <Route path="/product" component={Product} />
                 <Route path="/lifecycle" component={LifeCycleComp} />
+                <Route path="/home-component" component={HomeComponentPage} />
             </Fragment>
-            </BrowserRouter>
+            </Router>
         )
     }
 }

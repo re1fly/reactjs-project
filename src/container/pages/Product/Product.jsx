@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import CartProduct from '../CartProduct/CartProduct';
+import CartProduct from './CartProduct/CartProduct';
 import './Product.scss';
 
 class Product extends Component {
