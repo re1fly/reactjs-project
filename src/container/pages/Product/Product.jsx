@@ -1,18 +1,19 @@
 import React, { Component, Fragment } from 'react';
 import CartProduct from './CartProduct/CartProduct';
 import './Product.scss';
+import {connect} from 'react-redux';
 
 class Product extends Component {
 
-    state = {
-        order: 5
-    }
+    // state = {
+    //     order: 5
+    // }
 
-    handleCounterChange = (newValue) => {
-        this.setState({
-            order: newValue
-        })
-    }
+    // handleCounterChange = (newValue) => {
+    //     this.setState({
+    //         order: newValue
+    //     })
+    // }
 
     render(){
         return(
@@ -25,13 +26,19 @@ class Product extends Component {
                     </div>
                     <div className="cart">
                         <img src="https://www.svgrepo.com/show/178155/shopping-cart-commerce.svg" alt="cart-img" />
-                        <div className="count">{this.state.order}</div>
+                        <div className="count">{this.props.order}</div>
                     </div>
                 </div>
-                <CartProduct onCounterChange={(value) => this.handleCounterChange(value)} />
+                <CartProduct />
             </Fragment>
         );
     }
 }
 
-export default Product;
+const mapStateToProps = state => {
+    return {
+        order: state.totalOrder
+    }
+}
+
+export default connect(mapStateToProps)(Product);
