@@ -1,5 +1,5 @@
 //libraries
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment, createContext } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 //pages
@@ -13,9 +13,12 @@ import DetailPost from '../pages/BlogPostApi/DetailPost/DetailPost';
 import { Button, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+export const RootContext = createContext();
+const Provider = RootContext.Provider; //untuk menyimpan state secara global dalam context
+
 class Home extends Component {
     state = {
-        showComponent: true
+        totalOrder: 12
     }
     
     componentDidMount(){
@@ -29,19 +32,21 @@ class Home extends Component {
     render() {
         return(
             <Router>
-            <Fragment>
-                <Card.Body>
-                    <Link to="/"><Button className="m-3" variant="outline-primary">Blog Post API Page</Button></Link>
-                    <Link to="/product"><Button className="m-3" variant="outline-secondary">Product Page</Button></Link>
-                    <Link to="/lifecycle"><Button className="m-3" variant="outline-info">LifeCycle Page</Button></Link>
-                    <Link to="/home-component"><Button className="m-3" variant="outline-info">Movie</Button></Link>
-                </Card.Body>
-                <Route path="/" exact component={BlogPostApi} />
-                <Route path="/detail-post/:postID" component={DetailPost} />
-                <Route path="/product" component={Product} />
-                <Route path="/lifecycle" component={LifeCycleComp} />
-                <Route path="/home-component" component={HomeComponentPage} />
-            </Fragment>
+                <Provider value={this.state}>
+                    <Fragment>
+                        <Card.Body>
+                            <Link to="/"><Button className="m-3" variant="outline-primary">Blog Post API Page</Button></Link>
+                            <Link to="/product"><Button className="m-3" variant="outline-secondary">Product Page</Button></Link>
+                            <Link to="/lifecycle"><Button className="m-3" variant="outline-info">LifeCycle Page</Button></Link>
+                            <Link to="/home-component"><Button className="m-3" variant="outline-info">Movie</Button></Link>
+                        </Card.Body>
+                        <Route path="/" exact component={BlogPostApi} />
+                        <Route path="/detail-post/:postID" component={DetailPost} />
+                        <Route path="/product" component={Product} />
+                        <Route path="/lifecycle" component={LifeCycleComp} />
+                        <Route path="/home-component" component={HomeComponentPage} />
+                    </Fragment>
+                </Provider>
             </Router>
         )
     }

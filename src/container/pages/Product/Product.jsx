@@ -26,7 +26,7 @@ class Product extends Component {
                     </div>
                     <div className="cart">
                         <img src="https://www.svgrepo.com/show/178155/shopping-cart-commerce.svg" alt="cart-img" />
-                        <div className="count">{this.props.order}</div>
+                        <div className="count">{0}</div>
                     </div>
                 </div>
                 <CartProduct />
@@ -41,4 +41,5 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Product);
+// export default connect(mapStateToProps)(Product);
+export default Product;
