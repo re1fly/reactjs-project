@@ -23,7 +23,7 @@ class Counter extends Component{
     //     if(this.state.order > 0){
     //         this.setState({
     //             order : this.state.order - 1
-    //         }, () =>{
+    //         }, ()  =>{
     //         this.handleCounterChange(this.state.order);
     //         })
     //     }
@@ -38,9 +38,9 @@ class Counter extends Component{
                         console.log('value : ', value)
                         return (
                             <div className ="counter">
-                                <button className="minus" onClick={()=>null}>-</button>
-                                <input type="text" className="text-count" value={value.totalOrder} />
-                                <button className="plus" onClick={()=>null}>+</button>
+                                <button className="minus" onClick={()=>value.dispatch({type: 'MINUS_ORDER'})}>-</button>
+                                <input type="text" className="text-count" value={value.state.totalOrder} />
+                                <button className="plus" onClick={()=>value.dispatch({type: 'ADD_ORDER'})}>+</button>
                             </div>
                         )
                     }

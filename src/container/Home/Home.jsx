@@ -20,19 +20,39 @@ class Home extends Component {
     state = {
         totalOrder: 12
     }
-    
-    componentDidMount(){
-        // setTimeout(() => {
-        //     this.setState({
-        //         showComponent: false
-        //     })
-        // }, 8000);
+
+    dispatch = (action) => {
+        if(action.type ==='ADD_ORDER'){
+            return this.setState({
+                totalOrder: this.state.totalOrder + 1
+            })
+        }
+        if(action.type === 'MINUS_ORDER'){
+            if(this.state.totalOrder > 0){
+                return this.setState({
+                    totalOrder: this.state.totalOrder - 1
+                })
+            }
+        }
     }
+    
+    // componentDidMount(){
+    //     // setTimeout(() => {
+    //     //     this.setState({
+    //     //         showComponent: false
+    //     //     })
+    //     // }, 8000);
+    // }
 
     render() {
         return(
             <Router>
-                <Provider value={this.state}>
+                <Provider value={
+                    {
+                        state: this.state,
+                        dispatch: this.dispatch
+                    }
+                }>
                     <Fragment>
                         <Card.Body>
                             <Link to="/"><Button className="m-3" variant="outline-primary">Blog Post API Page</Button></Link>
