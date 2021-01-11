@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {connect} from 'react-redux';
 
 
 class LifeCycleComp extends Component {
@@ -67,9 +68,17 @@ class LifeCycleComp extends Component {
                 <h2>LifeCycle Page</h2>
                 <hr />
                 <Button variant="outline-primary" onClick={this.changeCount}>Component Button{this.state.count}</Button>
+                <hr />
+                <p>Total Order: {this.props.order}</p>
             </Fragment>
         )
     }
 }
 
-export default LifeCycleComp;
+const mapStateToProps = state => {
+    return {
+        order: state.totalOrder
+    }
+}
+
+export default connect(mapStateToProps)(LifeCycleComp);
