@@ -33,7 +33,7 @@ class BlogPostApi extends Component {
     }
 
     postDataToApi = () => {
-        axios.post('http://localhost:3004/posts', this.state.formBlogPost).then((response) => {
+        API.postBlog(this.state.formBlogPost).then(response => {
             this.getPostAPI();
             this.setState({
                 formBlogPost: {
@@ -41,10 +41,8 @@ class BlogPostApi extends Component {
                     id: 1,
                     title: '',
                     body: ''
-        },
+                },
             })
-        }, (error) => {
-            console.log('data error', error);
         })
     }
 
@@ -127,11 +125,11 @@ class BlogPostApi extends Component {
                 </Form>
                 </Card.Body>
                 </Card><br />
-                {
+                {/* {
                     this.state.comments.map(comment => {
                     return <p>{comment.name} - {comment.email}</p>
                     })
-                }
+                } */}
                 {
                     this.state.post.map( post => {
                        return <Post key={post.id} data={post} delete={this.handleDelete} update={this.handleUpdate} detail={this.handleDetail} />

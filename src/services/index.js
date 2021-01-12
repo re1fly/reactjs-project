@@ -1,28 +1,19 @@
-import axios from "axios";
+import Get from './Get';
+import Post from './Post';
 
-const RootPath = 'http://localhost:3004';
-const OnlineRoot = 'https://jsonplaceholder.typicode.com'
 
-const Get = (path, root) => {
-    //resolve untuk memberikan return positif, reject untuk return negatif
-    const promise = new Promise((resolve, reject) => {
-        axios.get(`${root ? OnlineRoot : path}/${path}`)
-        .then((response)=> {
-            resolve(response.data);
-        }, (error) => {
-            reject(error);
-        })
-    })
-    return promise;
-}
+//true untuk menampilkan online path dan false untuk local path
 
-//true for online path and flase for local path
+//POST
+const postBlog = (data) => Post('posts', false, data);
+
 const getBlog = () => Get('posts?_sort=id&_order=desc', false);
-const getComments = () => Get('posts/1/comments', true);
+const getComments = () => Get('comments', true);
 
 const API = {
     getBlog,
-    getComments
+    getComments,
+    postBlog
 }
 
 export default API;
