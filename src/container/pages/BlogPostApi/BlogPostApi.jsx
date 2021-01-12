@@ -47,23 +47,23 @@ class BlogPostApi extends Component {
     }
 
     putDatatoApi = () => {
-        axios.put(`http://localhost:3004/posts/${this.state.formBlogPost.id}`, this.state.formBlogPost).then((response) => {
+        API.updateBlog(this.state.formBlogPost, this.state.formBlogPost.id).then(response => {
             this.getPostAPI();
             this.setState({
+                isUpdate: false,
                 formBlogPost: {
                     userId: 1,
                     id: 1,
                     title: '',
                     body: ''
                 },
-                isUpdate: false,
             })
         })
     }
 
     handleDelete = (data) =>{
-        axios.delete(`http://localhost:3004/posts/${data}`).then((response)=>{
-            this.getPostAPI()
+        API.deleteBlog(data).then(res => {
+            this.getPostAPI();
         })
     }
 

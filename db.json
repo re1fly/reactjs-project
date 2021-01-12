@@ -502,12 +502,6 @@
       "id": 1610089002686,
       "title": "test post",
       "body": "data was successfully inserted."
-    },
-    {
-      "userId": 1,
-      "id": 1610432427246,
-      "title": "test global",
-      "body": "success update"
     }
   ]
 }
