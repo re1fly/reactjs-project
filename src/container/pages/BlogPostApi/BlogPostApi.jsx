@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 import Post from '../../../component/Post/Post';
 import axios from 'axios';
 import { Button, Card, Form } from 'react-bootstrap';
+import API from '../../../services';
 
 
 class BlogPostApi extends Component {
@@ -14,17 +15,21 @@ class BlogPostApi extends Component {
             body: ''
         },
         isUpdate: false,
+        comments: []
     }
 
 
     getPostAPI = () => {
-        axios.get('http://localhost:3004/posts?_sort=id&_order=desc')
-            .then((response)=> {
-                console.log(response.data);
-                this.setState({
-                    post: response.data
-                })
+        API.getBlog().then(response => {
+            this.setState({
+                post: response
             })
+        })
+        API.getComments().then(response => {
+            this.setState({
+                comments: response
+            })
+        })
     }
 
     postDataToApi = () => {
@@ -47,13 +52,13 @@ class BlogPostApi extends Component {
         axios.put(`http://localhost:3004/posts/${this.state.formBlogPost.id}`, this.state.formBlogPost).then((response) => {
             this.getPostAPI();
             this.setState({
-                isUpdate: false,
                 formBlogPost: {
                     userId: 1,
                     id: 1,
                     title: '',
                     body: ''
-        },
+                },
+                isUpdate: false,
             })
         })
     }
@@ -122,6 +127,11 @@ class BlogPostApi extends Component {
                 </Form>
                 </Card.Body>
                 </Card><br />
+                {
+                    this.state.comments.map(comment => {
+                    return <p>{comment.name} - {comment.email}</p>
+                    })
+                }
                 {
                     this.state.post.map( post => {
                        return <Post key={post.id} data={post} delete={this.handleDelete} update={this.handleUpdate} detail={this.handleDetail} />
