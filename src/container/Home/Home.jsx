@@ -1,6 +1,7 @@
 //libraries
 import React, { Component, Fragment, createContext } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import GlobalProvider from '../../context/context';
 
 //pages
 import LifeCycleComp from '../pages/LifeCycleComp/LifeCycleComp';
@@ -13,46 +14,11 @@ import DetailPost from '../pages/BlogPostApi/DetailPost/DetailPost';
 import { Button, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export const RootContext = createContext();
-const Provider = RootContext.Provider; //untuk menyimpan state secara global dalam context
 
 class Home extends Component {
-    state = {
-        totalOrder: 12
-    }
-
-    dispatch = (action) => {
-        if(action.type ==='ADD_ORDER'){
-            return this.setState({
-                totalOrder: this.state.totalOrder + 1
-            })
-        }
-        if(action.type === 'MINUS_ORDER'){
-            if(this.state.totalOrder > 0){
-                return this.setState({
-                    totalOrder: this.state.totalOrder - 1
-                })
-            }
-        }
-    }
-    
-    // componentDidMount(){
-    //     // setTimeout(() => {
-    //     //     this.setState({
-    //     //         showComponent: false
-    //     //     })
-    //     // }, 8000);
-    // }
-
     render() {
         return(
             <Router>
-                <Provider value={
-                    {
-                        state: this.state,
-                        dispatch: this.dispatch
-                    }
-                }>
                     <Fragment>
                         <Card.Body>
                             <Link to="/"><Button className="m-3" variant="outline-primary">Blog Post API Page</Button></Link>
@@ -66,11 +32,10 @@ class Home extends Component {
                         <Route path="/lifecycle" component={LifeCycleComp} />
                         <Route path="/home-component" component={HomeComponentPage} />
                     </Fragment>
-                </Provider>
             </Router>
         )
     }
 }
 
 
-export default Home
+export default GlobalProvider(Home);

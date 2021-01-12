@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Home from './container/Home/Home';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Home from './container/Home/Home';
 // import {createStore} from 'redux';
 // import {Provider} from 'react-redux';
 // import rootReducer from './redux/reducer/globalReducer';
@@ -17,7 +17,6 @@ import Home from './container/Home/Home';
 //     <Provider store={storeRedux}><Home /></Provider>,
 //   </React.StrictMode>,
 //   document.getElementById('root')
-
 ReactDOM.render(
     <Home />,
   document.getElementById('root')
