@@ -1,7 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {connect} from 'react-redux';
 import { GlobalConsumer } from '../../../context/context';
 
 

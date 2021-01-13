@@ -1,6 +1,5 @@
 import React, {Component, Fragment} from 'react';
 import Post from '../../../component/Post/Post';
-import axios from 'axios';
 import { Button, Card, Form } from 'react-bootstrap';
 import API from '../../../services';
 

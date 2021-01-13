@@ -1,6 +1,6 @@
 //libraries
-import React, { Component, Fragment, createContext } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import GlobalProvider from '../../context/context';
 
 //pages

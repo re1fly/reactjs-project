@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FormGroup, Button } from "reactstrap";
+import { FormGroup} from "reactstrap";
 import FormHooks from "./FormHooks";
 import Input from "./Input";
 
@@ -23,7 +23,7 @@ function indexForm() {
       <h2>Register</h2>
       <FormHooks form={form} onSubmit={onRegister} onChangeForm={setForm}>
         <FormGroup>
-          <label>Nama</label>
+          <label>Name</label>
           <Input type="text" name="name" />
         </FormGroup>
         <FormGroup>
@@ -31,7 +31,7 @@ function indexForm() {
           <Input type="email" name="email" />
         </FormGroup>
         <FormGroup>
-          <label>Alamat</label>
+          <label>Address</label>
           <Input type="textarea" name="address" />
         </FormGroup>
         <button type="button" class="btn btn-dark">Submit</button>

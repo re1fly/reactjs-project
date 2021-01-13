@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
 import { GlobalConsumer } from '../../../../context/context';
 class Counter extends Component{
   
