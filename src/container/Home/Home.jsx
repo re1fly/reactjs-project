@@ -9,6 +9,7 @@ import Product from '../pages/Product/Product';
 import BlogPostApi from '../pages/BlogPostApi/BlogPostApi';
 import HomeComponentPage from '../pages/HomeComponentPage/HomeComponentPage';
 import DetailPost from '../pages/BlogPostApi/DetailPost/DetailPost';
+import Hooks from '../pages/Hooks/Hooks';
 
 //style
 import { Button, Card } from 'react-bootstrap';
@@ -21,16 +22,18 @@ class Home extends Component {
             <Router>
                     <Fragment>
                         <Card.Body>
-                            <Link to="/"><Button className="m-3" variant="outline-primary">Blog Post API Page</Button></Link>
-                            <Link to="/product"><Button className="m-3" variant="outline-secondary">Product Page</Button></Link>
+                            <Link to="/"><Button className="m-3" variant="outline-info">Blog Post API Page</Button></Link>
+                            <Link to="/product"><Button className="m-3" variant="outline-info">Product Page</Button></Link>
                             <Link to="/lifecycle"><Button className="m-3" variant="outline-info">LifeCycle Page</Button></Link>
                             <Link to="/home-component"><Button className="m-3" variant="outline-info">Movie</Button></Link>
+                            <Link to="/hooks"><Button className="m-3" variant="outline-info">Hooks</Button></Link>
                         </Card.Body>
                         <Route path="/" exact component={BlogPostApi} />
                         <Route path="/detail-post/:postID" component={DetailPost} />
                         <Route path="/product" component={Product} />
                         <Route path="/lifecycle" component={LifeCycleComp} />
                         <Route path="/home-component" component={HomeComponentPage} />
+                        <Route path="/hooks" component={Hooks} />
                     </Fragment>
             </Router>
         )
