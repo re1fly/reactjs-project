@@ -10,6 +10,7 @@ import BlogPostApi from '../pages/BlogPostApi/BlogPostApi';
 import HomeComponentPage from '../pages/HomeComponentPage/HomeComponentPage';
 import DetailPost from '../pages/BlogPostApi/DetailPost/DetailPost';
 import Hooks from '../pages/Hooks/Hooks';
+import IndexForm from '../pages/FormHooks/IndexForm';
 
 //style
 import { Button, Card } from 'react-bootstrap';
@@ -27,6 +28,7 @@ class Home extends Component {
                             <Link to="/lifecycle"><Button className="m-3" variant="outline-info">LifeCycle Page</Button></Link>
                             <Link to="/home-component"><Button className="m-3" variant="outline-info">Movie</Button></Link>
                             <Link to="/hooks"><Button className="m-3" variant="outline-info">Hooks</Button></Link>
+                            <Link to="/form"><Button className="m-3" variant="outline-info">Form</Button></Link>
                         </Card.Body>
                         <Route path="/" exact component={BlogPostApi} />
                         <Route path="/detail-post/:postID" component={DetailPost} />
@@ -34,6 +36,7 @@ class Home extends Component {
                         <Route path="/lifecycle" component={LifeCycleComp} />
                         <Route path="/home-component" component={HomeComponentPage} />
                         <Route path="/hooks" component={Hooks} />
+                        <Route path="/form" component={IndexForm} />
                     </Fragment>
             </Router>
         )
