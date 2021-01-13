@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -12,6 +12,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //             count: this.state.count + 1
 //         })
 //     }
+
+//     componentDidMount() {
+//         document.title = `Title : ${this.state.count}`
+//     }
+
+//     componentDidUpdate() {
+//         document.title = `Title : ${this.state.count}`
+//     }
+
+//     componentWillUnmount() {
+//         document.title = 'GlobalXtreme';
+//     }
+
+
 //     render(){
 //         return (
 //             <div>
@@ -23,7 +37,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // }
 
 const Hooks = (props) => {
-    const [count, setCount] = useState(1);
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        document.title = `Title : ${count}`;
+        return() => {
+            document.title = 'GlobalXtreme';
+        }
+    })
+
+
     return(
         <div>
             <p className="ml-5 mt-5">Nilai : {count}</p>

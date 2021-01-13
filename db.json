@@ -496,12 +496,6 @@
       "userId": 0.5422021627118911,
       "title": "test put",
       "body": "data was successfully updated"
-    },
-    {
-      "userId": 1,
-      "id": 1610089002686,
-      "title": "test post",
-      "body": "data was successfully inserted."
     }
   ]
 }
